@@ -1,0 +1,41 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the paper and the dataset as below."
+title: "Listening to Tweets: Detecting Suicidal Ideation on Twitter with Word2Vec, TF-IDF and Six Classical Classifiers"
+type: software
+authors:
+  - family-names: Barik
+    given-names: Sudip
+    affiliation: "Techno International New Town, Kolkata, India"
+    email: sudip.barik@tint.edu.in
+  - family-names: Ghosh
+    given-names: Ammlan
+    affiliation: "Saveetha School of Engineering, Chennai, India"
+    email: ammlanghosh.sse@saveetha.com
+repository-code: "https://github.com/SudipBarik-tech/Listening-to-Tweets"
+keywords:
+  - suicidal ideation
+  - Twitter
+  - natural language processing
+  - Word2Vec
+  - TF-IDF
+  - text classification
+preferred-citation:
+  type: conference-paper
+  title: "Listening to Tweets: Detecting Suicidal Ideation on Twitter with Word2Vec, TF-IDF and Six Classical Classifiers"
+  authors:
+    - family-names: Barik
+      given-names: Sudip
+    - family-names: Ghosh
+      given-names: Ammlan
+  collection-title: "IEEE International Conference on Research in Computational Intelligence and Communication Networks (ICRCICN)"
+  year: 2027
+  notes: "Submitted"
+references:
+  - type: dataset
+    title: "Suicidal Tweet Detection Dataset"
+    authors:
+      - family-names: Mahmud
+        given-names: Syeda Aunanya
+    year: 2023
+    url: "https://www.kaggle.com/datasets/aunanya875/suicidal-tweet-detection-dataset"
+    license: CC-BY-NC-SA-4.0
