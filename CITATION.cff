@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "If you use this code, please cite the paper and the dataset as below."
-title: "Listening to Tweets: Detecting Suicidal Ideation on Twitter with Word2Vec, TF-IDF and Six Classical Classifiers"
+title: "Sravana: Listening to Tweets for Signs of Suicidal Ideation, Comparing Word2Vec and TF-IDF Features with Classical Classifiers"
 type: software
 authors:
   - family-names: Barik
@@ -21,7 +21,7 @@ keywords:
   - text classification
 preferred-citation:
   type: conference-paper
-  title: "Listening to Tweets: Detecting Suicidal Ideation on Twitter with Word2Vec, TF-IDF and Six Classical Classifiers"
+  title: "Sravana: Listening to Tweets for Signs of Suicidal Ideation, Comparing Word2Vec and TF-IDF Features with Classical Classifiers"
   authors:
     - family-names: Barik
       given-names: Sudip
