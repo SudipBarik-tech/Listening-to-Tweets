@@ -1,5 +1,20 @@
 # Results
 
+> **Update (after review): the full, fair comparison.** The paper's main table (Table III) now gives every one of the six classifiers each of three kinds of features: our own Word2Vec, ready-made GloVe Twitter vectors, and TF-IDF. Those numbers come from `extended_experiments.py` and are in `results/extended/`. The own-Word2Vec numbers below are unchanged and appear again in Table III.
+
+## Table III: three kinds of features × six classifiers
+
+Same 244 test tweets for every row. `results/extended/test_results.csv` has precision, recall, F1, Wilson intervals and confusion counts; `cv_results.csv` has 5-fold CV means and SDs.
+
+* Best results: **GloVe + Random Forest 92.2%** (95% CI 88.2–95.0%; 119/131 caught, 7 false alarms) and **TF-IDF + Random Forest 91.0%** (119/131 caught, 10 false alarms). McNemar between them: *p* = 0.69, so no clear winner.
+* GloVe vs own Word2Vec (same classifier): significantly better for 5 of 6 classifiers (*p* ≤ 0.008; k-NN *p* = 0.23).
+* TF-IDF vs own Word2Vec: significantly better for RF, LR, XGBoost, Decision Tree (*p* ≤ 0.007); no difference for Naive Bayes (*p* = 0.37); much worse for k-NN (k-NN on sparse TF-IDF vectors finds few truly similar tweets).
+* GloVe vs TF-IDF: no significant difference for RF, LR, XGBoost, Decision Tree (*p* ≥ 0.49). All pairs: `mcnemar_vs_w2v.txt`.
+* GloVe knows 91% of the training vocabulary; only 3 tweets have no known word (own Word2Vec: 1,178-word vocabulary, 17 empty tweets).
+* **No balancing:** 5-fold CV on all 1,777 tweets (36.7% suicidal), `full_data_cv.csv`: TF-IDF + RF 91.2%, GloVe + XGBoost 91.0%, own Word2Vec + RF 87.1%. Same order as on the balanced set.
+* **Realistic prevalence** (best model, recall 0.908, false-alarm rate 7/113 = 0.062): about 43% of alerts correct at 5% prevalence, about 13% at 1%.
+
+
 All numbers below are produced by the scripts in this repository (seed 42 unless stated). Files are in [`../results/`](../results/).
 
 ## 1. Held-out test set (244 tweets: 131 suicidal, 113 not)

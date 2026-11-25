@@ -41,7 +41,7 @@ The leftover `ca` comes from the tokenizer splitting *can't* into *ca* + *n't*. 
 
 ## 4. Features (paper §IV-A)
 
-### Word2Vec (main features)
+### Word2Vec (own, learnt from the training tweets)
 
 * gensim `Word2Vec`: skip-gram (`sg=1`), `vector_size=100`, `window=5`, `min_count=2`, `epochs=20`, `seed=42`, `workers=1` (single worker for reproducibility).
 * **Trained on training tweets only**, so no information from the test tweets leaks into the features.
@@ -49,7 +49,14 @@ The leftover `ca` comes from the tokenizer splitting *can't* into *ca* + *n't*. 
 * Vocabulary size in the main run: 1,178 words.
 * Option: `--w2v google` uses the pre-trained 300-d GoogleNews vectors instead (1.6 GB download; not used in the paper).
 
-### TF-IDF (baseline)
+### GloVe (ready-made, `extended_experiments.py`)
+
+* Pre-trained GloVe Twitter vectors, 100 numbers per word (Pennington, Socher and Manning, EMNLP 2014), learnt from about 2 billion tweets. File: `glove-twitter-100.gz` from the gensim-data project.
+* Nothing is learnt from our data: each cleaned word is looked up, and a tweet is the average of its word vectors (zeros if no word is known).
+* Coverage: 91% of the training vocabulary; 3 of 1,216 tweets have no known word.
+* GloVe is unsupervised: it never saw our labels.
+
+### TF-IDF (all six classifiers in `extended_experiments.py`; Logistic Regression only in `run_experiments.py`)
 
 * scikit-learn `TfidfVectorizer(ngram_range=(1, 2), min_df=2)` on the cleaned, joined tokens.
 * Fitted on training tweets only.
