@@ -19,6 +19,8 @@ ap.add_argument("--raw", default="data/Suicide_Ideation_Dataset(Twitter-based).c
 ap.add_argument("--out", default="data/tweets_balanced.csv")
 ap.add_argument("--n-neg", type=int, default=563)
 ap.add_argument("--seed", type=int, default=42)
+ap.add_argument("--full-out", default="data/tweets_full.csv",
+                help="also save all de-duplicated tweets (no balancing), used by extended_experiments.py")
 a = ap.parse_args()
 
 df = pd.read_csv(a.raw)
@@ -28,6 +30,10 @@ df["label"] = (df["Suicide"].str.strip() == "Potential Suicide post").astype(int
 print(f"after dropping empty rows: {len(df)} (suicidal {df.label.sum()})")
 df = df.drop_duplicates(subset=["Tweet"])
 print(f"after removing exact duplicates: {len(df)} (suicidal {df.label.sum()})")
+full = df.rename(columns={"Tweet": "text"})[["text", "label"]]
+os.makedirs(os.path.dirname(a.full_out) or ".", exist_ok=True)
+full.to_csv(a.full_out, index=False)
+print(f"all de-duplicated tweets: {len(full)} -> {a.full_out}")
 pos = df[df.label == 1]
 neg = df[df.label == 0].sample(n=a.n_neg, random_state=a.seed)
 out = (pd.concat([pos, neg]).sample(frac=1, random_state=a.seed)
