@@ -1,0 +1,21 @@
+classifier | other features | other right & W2V wrong | other wrong & W2V right | exact p
+Random Forest | GloVe (pre-trained) | 41 | 9 | 0.0000
+Random Forest | TF-IDF | 39 | 10 | 0.0000
+Logistic Regression | GloVe (pre-trained) | 41 | 12 | 0.0001
+Logistic Regression | TF-IDF | 32 | 5 | 0.0000
+XGBoost | GloVe (pre-trained) | 34 | 9 | 0.0002
+XGBoost | TF-IDF | 35 | 15 | 0.0066
+Decision Tree | GloVe (pre-trained) | 46 | 23 | 0.0076
+Decision Tree | TF-IDF | 41 | 13 | 0.0002
+Gaussian NB | GloVe (pre-trained) | 49 | 24 | 0.0046
+Gaussian NB | TF-IDF | 44 | 35 | 0.3682
+k-NN | GloVe (pre-trained) | 27 | 18 | 0.2327
+k-NN | TF-IDF | 49 | 111 | 0.0000
+
+classifier | GloVe right & TF-IDF wrong | GloVe wrong & TF-IDF right | exact p
+Random Forest | 14 | 11 | 0.6900
+Logistic Regression | 18 | 16 | 0.8642
+XGBoost | 19 | 14 | 0.4869
+Decision Tree | 26 | 31 | 0.5966
+Gaussian NB | 31 | 15 | 0.0259
+k-NN | 116 | 45 | 0.0000
