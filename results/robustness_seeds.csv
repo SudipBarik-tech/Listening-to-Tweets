@@ -1,0 +1,8 @@
+model,mean_acc,sd_acc,min_acc,max_acc
+Random Forest,0.8377,0.0234,0.7992,0.8852
+Logistic Regression,0.8029,0.0175,0.7787,0.8279
+XGBoost,0.8508,0.0249,0.8197,0.8975
+Decision Tree,0.784,0.0224,0.75,0.8238
+Gaussian NB,0.7684,0.0232,0.7336,0.8033
+k-NN,0.8033,0.0155,0.7787,0.8238
+TF-IDF + LR,0.8865,0.015,0.8607,0.9098
